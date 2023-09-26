@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import { userData } from "./data/userData";
 import UserCards from "./components/UserCards";
+import GithubIcon from "./images/github.png";
 
 const App = () => {
   const [data, setData] = useState(userData);
@@ -79,7 +80,7 @@ const App = () => {
       <section>
         <div className="container mt-3">
           <h1 className="text-center"> Users Data</h1>
-          <div className="c{ontainer mt-3">
+          <div className="container mt-3">
             {data.map((user, i) => {
               const { name, avatar, id } = user;
               return <UserCards key={i} name={name} avatar={avatar} id={id} />;
@@ -87,6 +88,10 @@ const App = () => {
           </div>
         </div>
       </section>
+<section>
+ <a href="https://github.com/saurabhjaykar1603/data-filter-x" target="blank"> <img src={GithubIcon} alt="" className="github-icon"/></a>
+</section>
+
     </>
   );
 };
