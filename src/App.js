@@ -1,15 +1,19 @@
 import React, { useState } from "react";
 import "./App.css";
 import { userData } from "./data/userData";
+import UserCards from "./components/UserCards";
 
 const App = () => {
- const [data ,setData ] = useState(userData)
+  const [data, setData] = useState(userData);
   return (
     <>
-      <nav className="navbar navbar-expand-lg   py-3" style={{backgroundColor: "#00D6F4"}}>
+      <nav
+        className="navbar navbar-expand-lg   py-3"
+        style={{ backgroundColor: "#00D6F4" }}
+      >
         <div className="container-fluid">
           <a className="navbar-brand fs-3 fw-600 " href="/">
-           Data Filter X
+            Data Filter X
           </a>
           <button
             className="navbar-toggler"
@@ -31,7 +35,7 @@ const App = () => {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/">
-                 About
+                  About
                 </a>
               </li>
             </ul>
@@ -53,11 +57,12 @@ const App = () => {
       <section>
         <div className="container mt-4">
           <h1 className="text-center"> Users Data</h1>
+          <div className="container">
+            <UserCards />
+          </div>
         </div>
       </section>
     </>
-
-    
   );
 };
 
