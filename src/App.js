@@ -55,10 +55,13 @@ const App = () => {
       </nav>
 
       <section>
-        <div className="container mt-4">
+        <div className="container mt-3">
           <h1 className="text-center"> Users Data</h1>
-          <div className="container">
-            <UserCards />
+          <div className="c{ontainer mt-3">
+            {data.map((user, i) => {
+              const { name, avatar, id } = user;
+              return <UserCards key={i} name={name} avatar={avatar} id={id} />;
+            })}
           </div>
         </div>
       </section>
