@@ -1,14 +1,37 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import { userData } from "./data/userData";
 import UserCards from "./components/UserCards";
 
 const App = () => {
   const [data, setData] = useState(userData);
+  
+
+  // filter
+  const [searchTerm, setSearchTerm] = useState("");
+  useEffect(() => {
+   const filteredData = userData.filter((data)=>{
+
+    const name = data.name.toLowerCase();
+    const id = data.id.toLowerCase();
+
+    const query = searchTerm.toLowerCase();
+
+    return name.includes(query) || id.includes(query);
+
+    
+    
+    
+  })
+  setData(filteredData);
+  }, [searchTerm]);
+
+
+
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg   py-3"
+        className="navbar navbar-expand-lg   py-3 sticky-top shadow"
         style={{ backgroundColor: "#00D6F4" }}
       >
         <div className="container-fluid">
@@ -39,16 +62,15 @@ const App = () => {
                 </a>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            <form className="container w-50" role="search">
               <input
-                className="form-control me-2"
+                className="form-control "
                 type="search"
-                placeholder="Search"
+                placeholder="Search User Here"
                 aria-label="Search"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
             </form>
           </div>
         </div>
