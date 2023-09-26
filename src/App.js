@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import { userData } from "./data/userData";
 
 const App = () => {
+ const [data ,setData ] = useState(userData)
   return (
     <>
       <nav className="navbar navbar-expand-lg   py-3" style={{backgroundColor: "#00D6F4"}}>
@@ -47,7 +49,15 @@ const App = () => {
           </div>
         </div>
       </nav>
+
+      <section>
+        <div className="container mt-4">
+          <h1 className="text-center"> Users Data</h1>
+        </div>
+      </section>
     </>
+
+    
   );
 };
 
